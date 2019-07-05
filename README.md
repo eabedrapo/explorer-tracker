@@ -34,3 +34,5 @@ This is still a work in progress.
 In order to get a working boilerplate using Node.js, MongoDB and Bootstrap I'm following James Hibbard's tutorial at [Sitepoint](https://www.sitepoint.com/build-simple-beginner-app-node-bootstrap-mongodb/).
 
 The initial structure of the project is shown in the file [`initialStructure.txt`](https://github.com/eabedrapo/explorer-tracker/master/design-documents/initial-structure.txt) in this repo. It will start evolving while I progress building this app.
+
+In order to get my HTML code easily translated into Pug templates, I used [html2jade](https://github.com/donpark/html2jade).
