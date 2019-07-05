@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    form(action="." method="POST")
+        label(for="charter") Charter:
+        |
+        input(
+            type="text"
+            id="charter"
+            name="charter"
+        )
