@@ -1,4 +1,4 @@
-[![apm](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/eabedrapo/explorer-tracker/master/LICENSE.md)
+[![apm](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
 
 # Abstract
 
@@ -9,8 +9,7 @@ This is still a work in progress.
 # Initial Design
 
 ## Main Page
-![Main page]
-(https://github.com/eabedrapo/explorer-tracker/blob/master/design-documents/paginaPrincipal.png)
+![Main page](paginaPrincipal.png)
 
 ## Create Charter Form
 Image coming soon
