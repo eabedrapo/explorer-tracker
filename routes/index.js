@@ -10,4 +10,8 @@ router.get('/createCharter', (req, res) => {
     res.render('newCharterForm', { title: 'Create a Charter', brand: 'Explorer Tracker'});
 });
 
+router.post('/', (req, res) => {
+    res.render('index', {title: 'Explorer Tracker', brand: 'Explorer Tracker'});
+  });
+
 module.exports = router;

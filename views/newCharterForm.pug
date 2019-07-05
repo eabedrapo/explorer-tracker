@@ -4,8 +4,30 @@ block content
     form(action="." method="POST")
         label(for="charter") Charter:
         |
-        input(
+        input.form-control(
             type="text"
             id="charter"
             name="charter"
         )
+        |
+        label(for="asignee") Asignee:
+        |
+        input.form-control(
+            type="text"
+            id="asignee"
+            name="asignee"
+        )
+        |
+        label(for="description") Description:
+        |
+        textarea.form-control(
+            placeholder="Enter charter's description."
+            id="description"
+            name="description"
+            rows=5
+            cols=100
+        )
+        |
+        .form-group.mt-3.offset-10
+            a(href='/').btn Cancel
+            button(type="submit").btn.btn-primary Create
