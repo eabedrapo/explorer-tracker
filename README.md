@@ -9,8 +9,8 @@ This is still a work in progress.
 # Initial Design
 
 ## Main Page
-Image coming soon
-[[https://github.com/eabedrapo/explorer-tracker/blob/master/design-documents/paginaPrincipal.png|alt=main-page]]
+![Main page]
+(https://github.com/eabedrapo/explorer-tracker/blob/master/design-documents/paginaPrincipal.png|alt=main-page)
 
 ## Create Charter Form
 Image coming soon
