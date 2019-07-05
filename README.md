@@ -12,28 +12,22 @@ This is still a work in progress.
 ![Main page](design-documents/paginaPrincipal.png)
 
 ## Create Charter Form
-Image coming soon
-![image]()
+![Create Charter Form](design-documents/formularioCrearCharter.png)
 
 ## Charter Page
-Image coming soon
-![image]()
+![Charter Page](design-documents/paginaDeCharter.png)
 
 ## Execution Form
-Image coming soon
-![image]()
+![Execution Form](design-documents/formularioEjecucion.png)
 
 ## Session Sheet
-Image coming soon
-![image]()
+![Session Sheet](design-documents/hojaDeSesion.png)
 
 ## Class Diagram
-Image coming soon
-![image]()
+![Class Diagram](design-documents/DiagramaDeClases.png)
 
 ## Entity-Relation Diagram
-Image coming soon
-![image]()
+![Entity-Relation Diagram](design-documents/DER.png)
 
 # Initial steps to build the app
 
