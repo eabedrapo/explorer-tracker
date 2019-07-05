@@ -10,11 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/eabedrapo/explorer-tracker.git"
   },
-  "keywords": ["sbtm", "exploratory-testing", "session-based-testing-management", "open-source", "agile-testing"],
+  "keywords": [
+    "sbtm",
+    "exploratory-testing",
+    "session-based-testing-management",
+    "open-source",
+    "agile-testing"
+  ],
   "author": "Elisa Abedrapo",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/eabedrapo/explorer-tracker/issues"
   },
-  "homepage": "https://github.com/eabedrapo/explorer-tracker#readme"
+  "homepage": "https://github.com/eabedrapo/explorer-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
