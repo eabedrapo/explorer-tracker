@@ -9,7 +9,7 @@ This is still a work in progress.
 # Initial Design
 
 ## Main Page
-![Main page](paginaPrincipal.png)
+![Main page](design-documents/paginaPrincipal.png)
 
 ## Create Charter Form
 Image coming soon
