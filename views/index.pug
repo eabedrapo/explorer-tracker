@@ -9,16 +9,14 @@ block content
         table.table.table-striped.table-hover
             thead.thead-dark
                 tr
-                    th(scope="col") id
                     th(scope="col") Charter
-                    th(scope="col") Asignee
+                    th(scope="col") Current Asignee
                     th(scope="col") Sessions
                     th(scope="col") To Debrief
                     th(scope="col") Command 
             tbody
                 each charter in charters
                     tr
-                        th(scope="row")= charter.id
                         td= charter.charter
                         td= charter.asignee
                         td= charter.sessions.length
@@ -27,8 +25,7 @@ block content
                         else
                             td
                         td
-                            a(href="#").btn.btn-info.mr-3 Edit
-                            a(href="#").btn.btn-danger Delete
+                            a(href="#").btn.btn-info Open
     else
         .row.justify-content-center
             .col-12-auto-mt-3
