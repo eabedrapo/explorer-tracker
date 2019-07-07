@@ -18,6 +18,7 @@ router.get('/createCharter', (req, res) => {
 
 router.post('/', (req, res) => {
     const charter = new Charter(req.body);
+    charter._id = new mongoose.Types.ObjectId();
     charter.save()
     .then(() => { res.redirect('/'); })
     .catch((err) => {
