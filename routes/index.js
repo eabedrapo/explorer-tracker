@@ -19,8 +19,11 @@ router.get('/createCharter', (req, res) => {
 router.post('/', (req, res) => {
     const charter = new Charter(req.body);
     charter.save()
-    .then(() => { res.send('The charter has been saved!'); })
-    .catch(() => { res.send('Sorry! Something went wrong.'); });
+    .then(() => { res.redirect('/'); })
+    .catch((err) => {
+        console.log(err);
+        res.send('Sorry! Something went wrong.');
+    });
   });
 
 module.exports = router;
