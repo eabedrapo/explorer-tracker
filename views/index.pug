@@ -6,18 +6,29 @@ block content
             a(href="/createCharter").btn.btn-primary Create Charter
     hr
     if charters.length
-        table
-            tr
-                th Charter
-                th Asignee
-                th Description
-                th Sessions
-            each charter in charters
+        table.table.table-striped.table-hover
+            thead.thead-dark
                 tr
-                    td= charter.charter
-                    td= charter.asignee
-                    td= charter.description
-                    td= charter.sessions.length
+                    th(scope="col") id
+                    th(scope="col") Charter
+                    th(scope="col") Asignee
+                    th(scope="col") Sessions
+                    th(scope="col") To Debrief
+                    th(scope="col") Command 
+            tbody
+                each charter in charters
+                    tr
+                        th(scope="row")= charter.id
+                        td= charter.charter
+                        td= charter.asignee
+                        td= charter.sessions.length
+                        if charter.sessions.length
+                            td= charter.sessions.length
+                        else
+                            td
+                        td
+                            a(href="#").btn.btn-info.mr-3 Edit
+                            a(href="#").btn.btn-danger Delete
     else
         .row.justify-content-center
             .col-12-auto-mt-3
