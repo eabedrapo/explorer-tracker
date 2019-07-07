@@ -4,3 +4,21 @@ block content
     .row.justify-content-center
         .col-12-auto.mt-3
             a(href="/createCharter").btn.btn-primary Create Charter
+    hr
+    if charters.length
+        table
+            tr
+                th Charter
+                th Asignee
+                th Description
+                th Sessions
+            each charter in charters
+                tr
+                    td= charter.charter
+                    td= charter.asignee
+                    td= charter.description
+                    td= charter.sessions.length
+    else
+        .row.justify-content-center
+            .col-12-auto-mt-3
+                p Still no charters to show
