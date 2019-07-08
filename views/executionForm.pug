@@ -1,9 +1,6 @@
 extends layout
 
 block content
-    .row.justify-content-center
-        .col-12-auto.mt-3.mr-3
-            a(href="/charterPage/?id="+charter._id).btn.btn-primary End Session
     hr
     .container
         .row.justify-content-left
@@ -14,7 +11,7 @@ block content
             .col-6
                 p 
                     strong= "Time Started: "
-                    span= "TBD - find a way to push a start date in current session before saving"
+                    span= Date(time)
         .row.justify-content-left
             .col
                 p
@@ -29,6 +26,10 @@ block content
                             pre= charter.description
     hr
     form(action="." method="POST")
+        .row.justify-content-center
+            .col-12-auto.mr-3
+                button(type="submit").btn.btn-primary End Session
+        hr
         .row.justify-content-center
             .form-group.col-1
                 label(for="t") T: 
@@ -90,3 +91,6 @@ block content
                     cols=100
                     required
                 )
+        input.hidden(name="charterid" type="hidden" value=charter.id)
+        input.hidden(name="asignee" type="hidden" value=charter.asignee)
+        input.hidden(name="startTime" type="hidden" value=time)
