@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    .row.justify-content-center
+        .col-12-auto.mt-3
+            a(href="/executionForm").btn.btn-primary Start Session
+    hr
+    p= "Title: " + charter.charter
+    p= "Current Asignee: " + charter.asignee
+    p Description:
+    p= charter.description
+    hr
+    if charter.sessions.length
+        table.table.table-striped.table-hover
+            thead.thead-dark
+                tr
+                    th(scope="col") Charter
+                    th(scope="col") Current Asignee
+                    th(scope="col") Sessions
+                    th(scope="col") To Debrief
+                    th(scope="col") Command 
+            tbody
+                each session in charter.sessions
+                    tr
+                        td= session.startTime
+                        td= session.asignee
+                        td= session.finishTime
+                        td= session.t
+                        td= session.b
+                        td= session.s
+                        td= session.opportunity
+                        td= session.bugs
+                        td= session.issues
+                        td= session.debriefed
+    else
+        .row.justify-content-center
+            .col-12-auto-mt-3
+                p Still no sessions to show

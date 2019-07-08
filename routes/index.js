@@ -16,6 +16,11 @@ router.get('/createCharter', (req, res) => {
     res.render('newCharterForm', { title: 'Explorer Tracker - Create a Charter'});
 });
 
+router.get('/charterPage', (req, res) => {
+    Charter.findOne({charter: 'grre'})
+        .then( charter => res.render('charterPage', { title: 'Explorer Tracker - Create a Charter', charter}));
+});
+
 router.post('/', (req, res) => {
     const charter = new Charter(req.body);
     charter._id = new mongoose.Types.ObjectId();
