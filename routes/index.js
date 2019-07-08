@@ -23,15 +23,8 @@ router.get('/charterPage', (req, res) => {
 });
 
 router.get('/executionForm', (req, res) => {
-    session = new Session();
-    session._id = new mongoose.Types.ObjectId();
-    session.charter = req.query.id;
-    Charter.findById(req.query.id, function (err, charter) {
-        charter.sessions.push(session);
-        charter.save();
-        console.log(charter);
-    })
-        .then( charter => res.render('executionForm', { title: 'Explorer Tracker - ' + charter.charter, charter, session}));
+    Charter.findById(req.query.id)
+        .then( charter => res.render('executionForm', { title: 'Explorer Tracker - ' + charter.charter, charter, time: Date.now()}));
 });
 
 router.post('/', (req, res) => {
@@ -39,6 +32,23 @@ router.post('/', (req, res) => {
     charter._id = new mongoose.Types.ObjectId();
     charter.save()
     .then(() => { res.redirect('/'); })
+    .catch((err) => {
+        console.log(err);
+        res.send('Sorry! Something went wrong.');
+    });
+  });
+
+  router.post('/executionForm', (req, res) => {
+    const session = new Session(req.body);
+    session._id = new mongoose.Types.ObjectId();
+    session.charter = req.body.charterid;
+    Charter.findById(req.body.charterid)
+    .exec(function(charter) {
+        charter.sessions.push(session._id);
+        charter.save();
+    })
+    session.save()
+    .then(() => { res.redirect('/charterPage?id=' + req.body.charterid); })
     .catch((err) => {
         console.log(err);
         res.send('Sorry! Something went wrong.');
