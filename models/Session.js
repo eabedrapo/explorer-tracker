@@ -7,15 +7,15 @@ const sessionSchema = new mongoose.Schema({
     ref: 'Charter'
   },
   startTime: {
-    type: Date,
-    default: Date.now
+    type: Date
   },
   assignee: {
     type: String,
     trim: true
   },
   finalTime: {
-    type: Date
+    type: Date,
+    default: Date.now
   },
   t: Number,
   b: Number,
@@ -23,11 +23,8 @@ const sessionSchema = new mongoose.Schema({
   oportunity: Number,
   bugs: Number,
   issues: Number,
-  debriefed: {
-    type: Boolean,
-    default: false
-  },
-
+  notes: String,
+  debriefNotes: String
 });
 
 module.exports = mongoose.model('Session', sessionSchema);
