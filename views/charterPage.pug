@@ -32,11 +32,16 @@ block content
         table.table.table-striped.table-hover
             thead.thead-dark
                 tr
-                    th(scope="col") Charter
-                    th(scope="col") Current Asignee
-                    th(scope="col") Sessions
-                    th(scope="col") To Debrief
-                    th(scope="col") Command 
+                    th(scope="col") Start Time
+                    th(scope="col") Assignee 
+                    th(scope="col") Finish Time
+                    th(scope="col") T
+                    th(scope="col") B
+                    th(scope="col") S
+                    th(scope="col") Opportunity
+                    th(scope="col") Bugs 
+                    th(scope="col") Issues
+                    th(scope="col") Debriefed
             tbody
                 each session in charter.sessions
                     tr
