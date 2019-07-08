@@ -2,13 +2,31 @@ extends layout
 
 block content
     .row.justify-content-center
-        .col-12-auto.mt-3
-            a(href="/executionForm").btn.btn-primary Start Session
+        .col-12-auto.mt-3.mr-3
+            a(href="/editCharter/?id="+charter._id).btn.btn-primary Edit Charter
+        .col-12-auto.mt-3.mr-3
+            a(href="/executionForm/?id="+charter._id).btn.btn-success Start Session
+        .col-12-auto.mt-3.mr-3
+            a(href="/").btn.btn-info Back
     hr
-    p= "Title: " + charter.charter
-    p= "Current Asignee: " + charter.asignee
-    p Description:
-    p= charter.description
+    .container
+        .row.justify-content-left
+            .col
+                p 
+                    strong= "Charter Title: "
+                    span= charter.charter
+        .row.justify-content-left
+            .col
+                p
+                    strong= "Current Asignee: "
+                    span= charter.asignee
+        .row.justify-content-left
+            .col
+                p
+                    strong= "Description:"
+                    .row.justify-content-left
+                        .col-11.offset-1
+                            pre= charter.description
     hr
     if charter.sessions.length
         table.table.table-striped.table-hover

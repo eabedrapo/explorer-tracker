@@ -18,7 +18,7 @@ router.get('/createCharter', (req, res) => {
 
 router.get('/charterPage', (req, res) => {
     Charter.findOne({_id: req.query.id})
-        .then( charter => res.render('charterPage', { title: 'Explorer Tracker - Create a Charter', charter}));
+        .then( charter => res.render('charterPage', { title: 'Explorer Tracker - ' + charter.charter, charter}));
 });
 
 router.post('/', (req, res) => {
