@@ -2,7 +2,7 @@ extends layout
 
 block content
     .row.justify-content-center
-        .col-12-auto.mt-3.mr-3.hiden
+        div(hidden).col-12-auto.mt-3.mr-3
             a(href="/editCharter/?id=" + charter._id).btn.btn-primary Edit Charter
         .col-12-auto.mt-3.mr-3
             a(href="/executionForm/?id=" + charter._id).btn.btn-success Start Session
