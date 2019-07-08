@@ -1,7 +1,11 @@
 extends layout
 
 block content
-    .jumbotron
+    .row.justify-content-center
+        .col-12-auto.mt-3.mr-3
+            a(href="/charterPage/?id="+charter._id).btn.btn-primary End Session
+    hr
+    .container
         .row.justify-content-left
             .col-6
                 p 
@@ -9,8 +13,8 @@ block content
                     span= charter.charter
             .col-6
                 p 
-                    strong= "Start Time: "
-                    span= session.startTime
+                    strong= "Time Started: "
+                    span= "TBD - find a way to push a start date in current session before saving"
         .row.justify-content-left
             .col
                 p
@@ -25,7 +29,7 @@ block content
                             pre= charter.description
     hr
     form(action="." method="POST")
-        .row
+        .row.justify-content-center
             .form-group.col-1
                 label(for="t") T: 
                 input.form-control(
@@ -74,9 +78,6 @@ block content
                     name="issues"
                     required
                 )
-            .col-12-auto.align-self-center.mt-3.ml-3
-                a(href="/charterPage/?id="+charter._id).btn.btn-primary End Session
-
         .row
             .form-group.col
                 label(for="notes") Notes:
