@@ -1,0 +1,91 @@
+extends layout
+
+block content
+    .jumbotron
+        .row.justify-content-left
+            .col-6
+                p 
+                    strong= "Charter Title: "
+                    span= charter.charter
+            .col-6
+                p 
+                    strong= "Start Time: "
+                    span= session.startTime
+        .row.justify-content-left
+            .col
+                p
+                    strong= "Current Asignee: "
+                    span= charter.asignee
+        .row.justify-content-left
+            .col
+                p
+                    strong= "Description:"
+                    .row.justify-content-left
+                        .col-11.offset-1
+                            pre= charter.description
+    hr
+    form(action="." method="POST")
+        .row
+            .form-group.col-1
+                label(for="t") T: 
+                input.form-control(
+                    type="text"
+                    id="t"
+                    name="t"
+                    required
+                )
+            .form-group.col-1
+                label(for="b") B: 
+                input.form-control(
+                    type="text"
+                    id="b"
+                    name="b"
+                    required
+                )
+            .form-group.col-1
+                label(for="s") S: 
+                input.form-control(
+                    type="text"
+                    id="s"
+                    name="s"
+                    required
+                )
+            .form-group.col-2
+                label(for="opportunity") % Opportunity: 
+                input.form-control(
+                    type="text"
+                    id="opportunity"
+                    name="opportunity"
+                    required
+                )
+            .form-group.col-1
+                label(for="bugs") # Bugs: 
+                input.form-control(
+                    type="text"
+                    id="bugs"
+                    name="bugs"
+                    required
+                )
+            .form-group.col-1
+                label(for="issues") # Issues: 
+                input.form-control(
+                    type="text"
+                    id="issues"
+                    name="issues"
+                    required
+                )
+            .col-12-auto.align-self-center.mt-3.ml-3
+                a(href="/charterPage/?id="+charter._id).btn.btn-primary End Session
+
+        .row
+            .form-group.col
+                label(for="notes") Notes:
+                |
+                textarea.form-control(
+                    placeholder="Enter your notes here."
+                    id="notes"
+                    name="notes"
+                    rows=10
+                    cols=100
+                    required
+                )
