@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const router = express.Router();
 const Charter = mongoose.model('Charter');
+const Session = mongoose.model('Session');
 
 router.get('/', (req, res) => {
     Charter.find()
@@ -17,8 +18,20 @@ router.get('/createCharter', (req, res) => {
 });
 
 router.get('/charterPage', (req, res) => {
-    Charter.findOne({_id: req.query.id})
+    Charter.findById(req.query.id)
         .then( charter => res.render('charterPage', { title: 'Explorer Tracker - ' + charter.charter, charter}));
+});
+
+router.get('/executionForm', (req, res) => {
+    session = new Session();
+    session._id = new mongoose.Types.ObjectId();
+    session.charter = req.query.id;
+    Charter.findById(req.query.id, function (err, charter) {
+        charter.sessions.push(session);
+        charter.save();
+        console.log(charter);
+    })
+        .then( charter => res.render('executionForm', { title: 'Explorer Tracker - ' + charter.charter, charter, session}));
 });
 
 router.post('/', (req, res) => {
