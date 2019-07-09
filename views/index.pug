@@ -12,7 +12,6 @@ block content
                     th(scope="col") Charter
                     th(scope="col") Current Assignee
                     th(scope="col") Sessions
-                    th(scope="col") To Debrief
                     th(scope="col") Command 
             tbody
                 each charter in charters
@@ -20,10 +19,6 @@ block content
                         td= charter.charter
                         td= charter.assignee
                         td= charter.sessions.length
-                        if charter.sessions.length
-                            td= charter.sessions.length
-                        else
-                            td
                         td
                             a(href="/charterPage/?id=" + charter.id).btn.btn-info Open
     else
