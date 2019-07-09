@@ -56,9 +56,9 @@ block content
                         td= session.bugs
                         td= session.issues
                         if session.debriefNotes
-                            td
+                            td Yes
                         else
-                            td No
+                            th No
                         td
                             a(href="/sessionSheet/?id=" + session.id).btn.btn-info Open
     else
