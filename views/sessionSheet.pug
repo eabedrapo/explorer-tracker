@@ -2,7 +2,7 @@ extends layout
 
 block content
     .row.justify-content-center
-        div(hidden).col-12-auto.mt-3.mr-3
+        .col-12-auto.mt-3.mr-3
             a(href="/addDebriefingNotes/?id=" + session._id).btn.btn-primary Add Debriefing Notes
         .col-12-auto.mt-3.mr-3
             a(href="/charterPage/?id=" + session.charter.id).btn.btn-info Back
@@ -66,3 +66,14 @@ block content
                     .row.justify-content-left
                         .col-11.offset-1
                             pre= session.notes
+    if session.debriefNotes
+        hr
+        .container
+            .row.justify-content-left
+                .col
+                    p
+                        strong= "Debriefing Notes:"
+                        .row.justify-content-left
+                            .col-11.offset-1
+                                pre= session.debriefNotes
+            
