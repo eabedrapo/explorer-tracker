@@ -27,6 +27,11 @@ router.get('/executionForm', (req, res) => {
         .then( charter => res.render('executionForm', { title: 'Explorer Tracker - ' + charter.charter, charter, time: Date.now()}));
 });
 
+router.get('/sessionSheet', (req, res) => {
+    Session.findById(req.query.id).populate('charter')
+        .then( session => res.render('sessionSheet', { title: 'Explorer Tracker - ' + session.charter.charter, session}));
+});
+
 router.post('/', (req, res) => {
     const charter = new Charter(req.body);
     charter._id = new mongoose.Types.ObjectId();

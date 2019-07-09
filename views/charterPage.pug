@@ -42,6 +42,7 @@ block content
                     th(scope="col") Bugs 
                     th(scope="col") Issues
                     th(scope="col") Debriefed
+                    th(scope="col") Command 
             tbody
                 each session in charter.sessions
                     tr
@@ -58,6 +59,8 @@ block content
                             td
                         else
                             td No
+                        td
+                            a(href="/sessionSheet/?id=" + session.id).btn.btn-info Open
     else
         .row.justify-content-center
             .col-12-auto-mt-3
