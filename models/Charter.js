@@ -7,7 +7,7 @@ const charterSchema = new mongoose.Schema({
     trim: true,
     required: true
   },
-  asignee: {
+  assignee: {
     type: String,
     trim: true,
   },
