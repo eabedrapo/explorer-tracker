@@ -32,6 +32,11 @@ router.get('/sessionSheet', (req, res) => {
         .then( session => res.render('sessionSheet', { title: 'Explorer Tracker - ' + session.charter.charter, session}));
 });
 
+router.get('/addDebriefingNotes', (req, res) => {
+    Session.findById(req.query.id).populate('charter')
+        .then( session => res.render('addDebriefingNotes', { title: 'Explorer Tracker - ' + session.charter.charter, session}));
+});
+
 router.post('/', (req, res) => {
     const charter = new Charter(req.body);
     charter._id = new mongoose.Types.ObjectId();
@@ -60,4 +65,16 @@ router.post('/', (req, res) => {
     });
   });
 
-module.exports = router;
+  router.post('/addDebriefingNotes', (req, res) => {
+    Session.findById(req.body.sessionid, function(err, session) {
+        session.debriefNotes = req.body.debriefNotes;
+        session.save()    
+    })
+        .then(() => { res.redirect('/sessionSheet?id=' + req.body.sessionid); })
+        .catch((err) => {
+            console.log(err);
+            res.send('Sorry! Something went wrong.');
+        });
+  });
+
+  module.exports = router;
