@@ -1,0 +1,86 @@
+extends layout
+
+block content
+    .row.justify-content-center
+        .col-12-auto.mt-3.mr-3
+            a(href="/sessionSheet/?id=" + session.charter.id).btn.btn-info Back
+    hr
+    .container
+        .row.justify-content-left
+            .col-6
+                p 
+                    strong= "Charter Title: "
+                    span= session.charter.charter
+            .col-6
+                p 
+                    strong= "Time Started: "
+                    span= session.startTime
+                p 
+                    strong= "Time Ended: "
+                    span= session.endTime
+        .row.justify-content-left
+            .col
+                p
+                    strong= "Current Assignee: "
+                    span= session.assignee
+        .row.justify-content-left
+            .col
+                p
+                    strong= "Description:"
+                    .row.justify-content-left
+                        .col-11.offset-1
+                            pre= session.charter.description
+    hr
+    .container
+        .row.justify-content-center
+                .col
+                    p
+                        strong= "T: "
+                        span= session.t
+                .col
+                    p
+                        strong= "B: "
+                        span= session.b
+                .col
+                    p
+                        strong= "S: "
+                        span= session.s
+                .col
+                    p
+                        strong= "Opportunity: "
+                        span= session.opportunity
+                .col
+                    p
+                        strong= "Bugs: "
+                        span= session.bugs
+                .col
+                    p
+                        strong= "Issues: "
+                        span= session.issues
+        .row.justify-content-left
+            .col
+                p
+                    strong= "Notes:"
+                    .row.justify-content-left
+                        .col-11.offset-1
+                            pre= session.notes
+    hr
+    form(action="." method="POST")
+        .row.justify-content-center
+            .col-12-auto.mr-3
+                button(type="submit").btn.btn-primary Save Debriefing Notes
+        hr
+        .row
+            .form-group.col
+                label(for="notes") Debriefing Notes:
+                |
+                textarea.form-control(
+                    placeholder="Enter your notes here."
+                    id="debriefNotes"
+                    name="debriefNotes"
+                    rows=10
+                    cols=100
+                    required
+                )
+        input.hidden(name="sessionid" type="hidden" value=session.id)
+
