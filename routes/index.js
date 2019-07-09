@@ -18,7 +18,7 @@ router.get('/createCharter', (req, res) => {
 });
 
 router.get('/charterPage', (req, res) => {
-    Charter.findById(req.query.id)
+    Charter.findById(req.query.id).populate('sessions')
         .then( charter => res.render('charterPage', { title: 'Explorer Tracker - ' + charter.charter, charter}));
 });
 
@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
     session._id = new mongoose.Types.ObjectId();
     session.charter = req.body.charterid;
     Charter.findById(req.body.charterid)
-    .exec(function(charter) {
+    .exec(function(err,charter) {
         charter.sessions.push(session._id);
         charter.save();
     })
