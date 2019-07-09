@@ -13,14 +13,14 @@ const sessionSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  finalTime: {
+  endTime: {
     type: Date,
     default: Date.now
   },
   t: Number,
   b: Number,
   s: Number,
-  oportunity: Number,
+  opportunity: Number,
   bugs: Number,
   issues: Number,
   notes: String,
