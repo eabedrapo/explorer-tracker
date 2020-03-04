@@ -58,10 +58,9 @@ So the steps to run the application locally are:
 8. Open a text file in the same folder and paste the following line: `DATABASE=mongodb://localhost:27017/explorer-tracker` (here `mongodb://localhost:27017/explorer-tracker` is the link to the database stored locally, you can change it to your instance in Atlas if you wish). Save it as `.env` and make sure it stays secure in your filesystem.
 9. Run `sudo npm install` to download all the dependencies.
 10. Create a location to store the database. For example, if want to store the database in `User/workspace` folder, the database folder should be `User/workspace/data/db`.
-11. Change MongoDB's default path to the database location: `mongod -- dbpath=User/workspace/data/db`.
-12. Start MongoDB with command: `mongod`.
-13. Open another terminal window and run `npm run watch`
-14. Open any web browser and navigate to http://localhost:3000/
-15. Start using the prototype!
+11. Change MongoDB's default path to the database location: `mongod --dbpath=User/workspace/data/db`.
+12. Open another terminal window, navigate to the `explorer-tracker` folder and run `npm run watch`.
+13. Open any web browser and navigate to http://localhost:3000/
+14. Start using the prototype!
 
 *Note:* if you're using a local database make sure you're properly backing up the `User/workspace/data/db` directory.
