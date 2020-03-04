@@ -11,7 +11,7 @@ block content
             .col-6
                 p 
                     strong= "Time Started: "
-                    span= Date(time)
+                    span= moment(Date(time)).format('DD-MMM-YYYY hh:mm:ss a')
         .row.justify-content-left
             .col
                 p

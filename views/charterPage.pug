@@ -34,7 +34,7 @@ block content
                 tr
                     th(scope="col") Start Time
                     th(scope="col") Assignee 
-                    th(scope="col") End Time
+                    th(scope="col") Duration (min)
                     th(scope="col") T
                     th(scope="col") B
                     th(scope="col") S
@@ -46,9 +46,9 @@ block content
             tbody
                 each session in charter.sessions
                     tr
-                        td= session.startTime
+                        td= moment(session.startTime).format('DD-MMM-YYYY hh:mm:ss a')
                         td= session.assignee
-                        td= session.endTime
+                        td= moment(session.endTime).diff(session.startTime, 'minutes')
                         td= session.t
                         td= session.b
                         td= session.s
