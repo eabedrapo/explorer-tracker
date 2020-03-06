@@ -17,6 +17,11 @@ router.get('/createCharter', (req, res) => {
     res.render('newCharterForm', { title: 'Explorer Tracker - Create a Charter'});
 });
 
+router.get('/editCharter', (req, res) => {
+    Charter.findById(req.query.id)
+        .then( charter => res.render('editCharterForm', { title: 'Explorer Tracker - Edit '+ charter.charter, charter}));
+});
+
 router.get('/charterPage', (req, res) => {
     Charter.findById(req.query.id).populate('sessions')
         .then( charter => res.render('charterPage', { title: 'Explorer Tracker - ' + charter.charter, charter}));
@@ -65,16 +70,30 @@ router.post('/', (req, res) => {
     });
   });
 
+  router.post('/editCharter', (req, res) => {
+    Charter.findById(req.body.charterid, function(err, charter) {
+        charter.charter = req.body.charter;
+        charter.assignee = req.body.assignee;
+        charter.description = req.body.description;
+        charter.save();
+    })
+    .then(() => { res.redirect('/charterPage?id=' + req.body.charterid); })
+    .catch((err) => {
+        console.log(err);
+        res.send('Sorry! Something went wrong.');
+    });
+  });
+
   router.post('/addDebriefingNotes', (req, res) => {
     Session.findById(req.body.sessionid, function(err, session) {
         session.debriefNotes = req.body.debriefNotes;
         session.save()    
     })
-        .then(() => { res.redirect('/sessionSheet?id=' + req.body.sessionid); })
-        .catch((err) => {
-            console.log(err);
-            res.send('Sorry! Something went wrong.');
-        });
+    .then(() => { res.redirect('/sessionSheet?id=' + req.body.sessionid); })
+    .catch((err) => {
+        console.log(err);
+        res.send('Sorry! Something went wrong.');
+    });
   });
 
   module.exports = router;

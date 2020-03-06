@@ -1,32 +1,42 @@
 extends layout
 
 block content
-    .row.justify-content-center
-        div.col-12-auto.mt-3.mr-3
-            a(href="/editCharter/?id=" + charter._id).btn.btn-primary Edit Charter
-        .col-12-auto.mt-3.mr-3
-            a(href="/executionForm/?id=" + charter._id).btn.btn-success Start Session
-        .col-12-auto.mt-3.mr-3
-            a(href="/").btn.btn-info Back
-    hr
-    .container
-        .row.justify-content-left
-            .col
-                p 
-                    strong= "Charter Title: "
-                    span= charter.charter
-        .row.justify-content-left
-            .col
-                p
-                    strong= "Current Assignee: "
-                    span= charter.assignee
-        .row.justify-content-left
-            .col
-                p
-                    strong= "Description:"
-                    .row.justify-content-left
-                        .col-11.offset-1
-                            pre= charter.description
+    form(action="." method="POST")
+        label(for="charter") Charter:
+        |
+        input.form-control(
+            type="text"
+            id="charter"
+            name="charter"
+            required
+            value= charter.charter
+        )
+        |
+        label(for="assignee") Assignee:
+        |
+        input.form-control(
+            type="text"
+            id="assignee"
+            name="assignee"
+            value= charter.assignee
+        )
+        |
+        label(for="description") Description:
+        |
+        textarea.form-control(
+            placeholder="Enter charter's description."
+            id="description"
+            name="description"
+            rows=5
+            cols=100
+            required
+        )= charter.description
+        |
+        .form-group.mt-3.offset-10
+            a(href='/charterPage/?id=' + charter.id).btn Cancel
+            button(type="submit").btn.btn-primary Save
+        input.hidden(name="charterid" type="hidden" value=charter.id)
+
     hr
     if charter.sessions.length
         table.table.table-striped.table-hover
