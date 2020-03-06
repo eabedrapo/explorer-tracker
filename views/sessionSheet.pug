@@ -2,8 +2,9 @@ extends layout
 
 block content
     .row.justify-content-center
-        .col-12-auto.mt-3.mr-3
-            a(href="/addDebriefingNotes/?id=" + session._id).btn.btn-primary Add Debriefing Notes
+        if !(session.debriefNotes)
+            .col-12-auto.mt-3.mr-3
+                a(href="/addDebriefingNotes/?id=" + session._id).btn.btn-primary Add Debriefing Notes
         .col-12-auto.mt-3.mr-3
             a(href="/charterPage/?id=" + session.charter.id).btn.btn-info Back
     hr
