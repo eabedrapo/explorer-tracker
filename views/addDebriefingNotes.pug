@@ -1,9 +1,6 @@
 extends layout
 
 block content
-    .row.justify-content-center
-        .col-12-auto.mt-3.mr-3
-            a(href="/sessionSheet/?id=" + session.charter.id).btn.btn-info Back
     hr
     .container
         .row.justify-content-left
@@ -68,6 +65,7 @@ block content
     form(action="." method="POST")
         .row.justify-content-center
             .col-12-auto.mr-3
+                a(href='/sessionSheet/?id=' + session.id).btn Cancel
                 button(type="submit").btn.btn-primary Save Debriefing Notes
         hr
         .row
